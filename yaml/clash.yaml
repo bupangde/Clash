@@ -611,6 +611,7 @@ rules:
   - DOMAIN-SUFFIX,kaiq.dpdns.org,默认代理
   - DOMAIN-SUFFIX,bupang.dpdns.org,默认代理
   - DOMAIN-SUFFIX,workers.dev,默认代理
+  - DOMAIN-SUFFIX,pages.dev,默认代理
   # 私有网络直连
   - RULE-SET,private,直连
   - RULE-SET,private_ip,直连,no-resolve
