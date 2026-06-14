@@ -1,0 +1,14 @@
+{
+  "user_preferences": {
+    "site_name": "KaiqBoy 探针",
+    "site_logo": "https://raw.githubusercontent.com/bupangde/Clash/refs/heads/main/icon/1.jpg",
+    "footer": "SYSTEMS TELEMETRY BY [IBYTEBOX]"
+  },
+  "site_tokens": [
+    {
+      "name": "本机 监控+ping",
+      "backend_url": "wss://api.kaiq.cc.cd/nodeget/rpc",
+      "token": "LashkrJMBu0Uy5VA:rocZcYNZUV5qnBBhBBw9f0Pz0P17eWTI"
+    }
+  ]
+}
