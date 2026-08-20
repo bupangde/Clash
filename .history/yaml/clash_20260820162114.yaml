@@ -360,7 +360,7 @@ prox_common:
         '日本',
         '美国',
         '新加坡',
-        '台湾省',
+        '台湾',
         '低倍率节点',
         '高倍率节点',
         '其他节点',
@@ -377,7 +377,7 @@ proxy-groups:
         '日本',
         '美国',
         '新加坡',
-        '台湾省',
+        '台湾',
         '低倍率节点',
         '高倍率节点',
         '其他节点',
@@ -402,7 +402,7 @@ proxy-groups:
         '日本',
         '美国',
         '新加坡',
-        '台湾省',
+        '台湾',
         '低倍率节点',
         '高倍率节点',
         '其他节点',
@@ -427,7 +427,7 @@ proxy-groups:
         '日本',
         '美国',
         '新加坡',
-        '台湾省',
+        '台湾',
         '低倍率节点',
         '高倍率节点',
         '其他节点',
@@ -444,7 +444,7 @@ proxy-groups:
         '日本',
         '美国',
         '新加坡',
-        '台湾省',
+        '台湾',
         '低倍率节点',
         '高倍率节点',
         '其他节点',
@@ -465,7 +465,7 @@ proxy-groups:
         '日本',
         '美国',
         '新加坡',
-        '台湾省',
+        '台湾',
         '低倍率节点',
         '高倍率节点',
         '其他节点',
@@ -502,7 +502,7 @@ proxy-groups:
         '日本',
         '美国',
         '新加坡',
-        '台湾省',
+        '台湾',
         '低倍率节点',
         '高倍率节点',
         '其他节点',
@@ -569,13 +569,13 @@ proxy-groups:
     <<: *group_common_auto
     filter: '🇸🇬|新加坡|狮城|SG|[Ss]ingapore'
 
-  - name: '台湾省'
+  - name: '台湾'
     <<: *group_common_select
     include-all: true
-    proxies: ['台湾省-自动选择']
+    proxies: ['台湾-自动选择']
     filter: '🇹🇼|台湾|TW|[Tt]aiwan'
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png'
-  - name: '台湾省-自动选择'
+  - name: '台湾-自动选择'
     <<: *group_common_auto
     filter: '🇹🇼|台湾|TW|[Tt]aiwan'
 
@@ -603,6 +603,15 @@ proxy-groups:
 
 # --- 路由规则 (Rules) ---
 rules:
+# - IP-CIDR,35.197.13.243/32,默认代理,no-resolve
+# - IP-CIDR,34.92.202.40/32,默认代理,no-resolve
+# - IP-CIDR,35.236.148.57/32,默认代理,no-resolve
+# - IP-CIDR,168.138.206.143/32,默认代理,no-resolve
+# - IP-CIDR,161.33.168.82/32,默认代理,no-resolve
+  - DOMAIN-SUFFIX,kaiq.dpdns.org,默认代理
+  - DOMAIN-SUFFIX,bupang.dpdns.org,默认代理
+  - DOMAIN-SUFFIX,workers.dev,默认代理
+  - DOMAIN-SUFFIX,pages.dev,默认代理
   # 私有网络直连
   - RULE-SET,private,直连
   - RULE-SET,private_ip,直连,no-resolve
