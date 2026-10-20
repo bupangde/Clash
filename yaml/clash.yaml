@@ -519,7 +519,7 @@ proxy-groups:
 
   - name: '广告拦截'
     <<: *group_common_select
-    proxies: ['REJECT', 'REJECT-DROP']
+    proxies: ['REJECT']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
 
   - name: '直连'
