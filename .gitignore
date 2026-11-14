@@ -1,0 +1,8 @@
+# 编辑器本地历史（Local History 插件备份目录）
+.history/
+
+# Clash 运行时产物
+proxy_providers/
+ruleset/
+ui/
+*.log
