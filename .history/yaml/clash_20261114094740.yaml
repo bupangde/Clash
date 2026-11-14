@@ -79,6 +79,8 @@ dns:
   fake-ip-filter:
     - 'rule-set:private'
     - 'rule-set:fakeip_filter'
+    # Tailscale MagicDNS 必须走真实解析，不能被 fake-ip 劫持
+    - '+.ts.net'
   proxy-server-nameserver: *chinaDNS
   default-nameserver:
     - '223.5.5.5'
@@ -119,6 +121,7 @@ tun:
   strict-route: true
   auto-redirect: true
   auto-detect-interface: true
+  # MTU / route-exclude-address 由 FlClash UI 管理覆盖，这里不再声明（Tailscale 兼容配置见 FlClash 应用设置）
   dns-hijack: ['udp://any:53', 'tcp://any:53']
 
 # --- 规则集 ---
@@ -519,7 +522,7 @@ proxy-groups:
 
   - name: '广告拦截'
     <<: *group_common_select
-    proxies: ['REJECT', 'REJECT-DROP', 'PASS']
+    proxies: ['REJECT']
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png'
 
   - name: '直连'
@@ -603,6 +606,13 @@ proxy-groups:
 
 # --- 路由规则 (Rules) ---
 rules:
+  # Tailscale 直连（必须置顶，优先级最高）
+  - SRC-IP-CIDR,100.64.0.0/10,直连,no-resolve
+  - IP-CIDR,100.64.0.0/10,直连,no-resolve
+  - IP-CIDR6,fd7a:115c:a1e0::/48,直连,no-resolve
+  - DOMAIN-SUFFIX,tailscale.com,直连
+  - DOMAIN-SUFFIX,tailscale.io,直连
+  - DOMAIN-SUFFIX,ts.net,直连
 # - IP-CIDR,35.197.13.243/32,默认代理,no-resolve
 # - IP-CIDR,34.92.202.40/32,默认代理,no-resolve
 # - IP-CIDR,35.236.148.57/32,默认代理,no-resolve
