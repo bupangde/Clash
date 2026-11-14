@@ -123,6 +123,8 @@ tun:
   auto-detect-interface: true
   # MTU / route-exclude-address 由 FlClash UI 管理覆盖，这里不再声明（Tailscale 兼容配置见 FlClash 应用设置）
   dns-hijack: ['udp://any:53', 'tcp://any:53']
+  exclude-interface:
+    - Tailscale
 
 # --- 规则集 ---
 
