@@ -125,6 +125,7 @@ tun:
   dns-hijack: ['udp://any:53', 'tcp://any:53']
   exclude-interface:
     - Tailscale
+find-process-mode: always
 
 # --- 规则集 ---
 
@@ -609,6 +610,7 @@ proxy-groups:
 # --- 路由规则 (Rules) ---
 rules:
   # Tailscale 直连（必须置顶，优先级最高）
+  - PROCESS-NAME,tailscaled.exe,直连
   - SRC-IP-CIDR,100.64.0.0/10,直连,no-resolve
   - IP-CIDR,100.64.0.0/10,直连,no-resolve
   - IP-CIDR6,fd7a:115c:a1e0::/48,直连,no-resolve
