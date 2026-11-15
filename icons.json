@@ -1,17 +1,17 @@
 {
   "name": "Kaiqboy 图标库",
-  "description": "个人收集的图标，共 3 个，更新日期：2026-11-15 09:47:14",
+  "description": "个人收集的图标，共 3 个，更新日期：2026-11-15 09:49:59",
   "icons": [
     {
       "name": "kaiqboy",
       "url": "https://raw.githubusercontent.com/bupangde/Clash/main/icon/kaiqboy.jpg"
     },
     {
-      "name": "坨坨云",
+      "name": "tuotuoyun",
       "url": "https://raw.githubusercontent.com/bupangde/Clash/main/icon/tuotuoyun.png"
     },
     {
-      "name": "一点万象",
+      "name": "yidianwanxiang",
       "url": "https://raw.githubusercontent.com/bupangde/Clash/main/icon/yidianwanxiang.png"
     }
   ]

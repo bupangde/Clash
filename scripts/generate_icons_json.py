@@ -24,13 +24,6 @@ from pathlib import Path
 # Image extensions we consider icons.
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".bmp", ".svg"}
 
-# Friendly Chinese names for known files (fallback: filename stem).
-DISPLAY_NAMES = {
-    "tuotuoyun": "坨坨云",
-    "yidianwanxiang": "一点万象",
-}
-
-
 def git(args: list[str], cwd: Path) -> str | None:
     try:
         return subprocess.check_output(
@@ -56,10 +49,6 @@ def detect_repo_and_branch(root: Path, override_repo: str | None) -> tuple[str, 
     return repo, branch
 
 
-def display_name(path: Path) -> str:
-    return DISPLAY_NAMES.get(path.stem, path.stem)
-
-
 def build(root: Path, icons_dir: Path, output: Path, repo: str, branch: str) -> dict:
     if not icons_dir.is_dir():
         sys.exit(f"icons dir not found: {icons_dir}")
@@ -75,7 +64,7 @@ def build(root: Path, icons_dir: Path, output: Path, repo: str, branch: str) -> 
         rel = p.relative_to(root).as_posix()  # e.g. icon/kaiqboy.jpg
         icons.append(
             {
-                "name": display_name(p),
+                "name": p.stem,  # 图标名称以文件名（不含扩展名）为准
                 "url": f"{base}/{rel}",
             }
         )
