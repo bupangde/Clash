@@ -26,7 +26,6 @@ IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".bmp", ".svg"}
 
 # Friendly Chinese names for known files (fallback: filename stem).
 DISPLAY_NAMES = {
-    "kaiqboy": "凯奇男孩",
     "tuotuoyun": "坨坨云",
     "yidianwanxiang": "一点万象",
 }
@@ -85,7 +84,7 @@ def build(root: Path, icons_dir: Path, output: Path, repo: str, branch: str) -> 
         "%Y-%m-%d %H:%M:%S"
     )
     data = {
-        "name": "Kaiq 图标库",
+        "name": "Kaiqboy 图标库",
         "description": f"个人收集的图标，共 {len(icons)} 个，更新日期：{now}",
         "icons": icons,
     }
