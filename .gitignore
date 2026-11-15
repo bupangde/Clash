@@ -6,3 +6,7 @@ proxy_providers/
 ruleset/
 ui/
 *.log
+
+# Python
+__pycache__/
+*.pyc
