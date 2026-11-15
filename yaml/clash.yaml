@@ -628,11 +628,8 @@ rules:
   - DOMAIN-SUFFIX,tailscale.com,直连
   - DOMAIN-SUFFIX,tailscale.io,直连
   - DOMAIN-SUFFIX,ts.net,直连
-# - IP-CIDR,35.197.13.243/32,默认代理,no-resolve
-# - IP-CIDR,34.92.202.40/32,默认代理,no-resolve
-# - IP-CIDR,35.236.148.57/32,默认代理,no-resolve
-# - IP-CIDR,168.138.206.143/32,默认代理,no-resolve
-# - IP-CIDR,161.33.168.82/32,默认代理,no-resolve
+  - IP-CIDR,168.138.206.143/32,直连,no-resolve
+  - IP-CIDR,161.33.168.82/32,直连,no-resolve
   - DOMAIN-SUFFIX,kaiq.dpdns.org,默认代理
   - DOMAIN-SUFFIX,bupang.dpdns.org,默认代理
   - DOMAIN-SUFFIX,workers.dev,默认代理
