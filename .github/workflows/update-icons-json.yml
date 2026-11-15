@@ -1,0 +1,49 @@
+name: 更新图标索引
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'icon/**'
+      - 'scripts/generate_icons_json.py'
+      - '.github/workflows/update-icons-json.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-icons-json
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: 生成 icons.json
+        run: |
+          python scripts/generate_icons_json.py \
+            --repo "${{ github.repository }}" \
+            --branch "${{ github.ref_name }}" \
+            --output icons.json
+          cat icons.json
+
+      - name: 仅在索引变化时提交
+        run: |
+          if git diff --quiet -- icons.json; then
+            echo "icons.json 无变化，跳过提交"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add icons.json
+          git commit -m "chore: 自动更新 icons.json 图标索引 [skip ci]"
+          git push

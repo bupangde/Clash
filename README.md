@@ -15,6 +15,25 @@
 - 已适配 Tailscale 共存：Tailscale 相关域名、网段与进程直连，`ts.net` 不被 fake-ip 劫持
 - 内置 zashboard 面板（external-ui）
 
+## 图标库
+
+- 图标索引（可在 FlClash / Stash / Shadowrocket 等支持图标库的客户端中订阅）：
+  `https://raw.githubusercontent.com/bupangde/Clash/main/icons.json`
+- 格式与 [fmz200/wool_scripts 图标库](https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json) 一致：`{ name, description, icons: [{ name, url }] }`
+- 图标文件放在 `icon/` 目录，支持 png / jpg / jpeg / webp / gif / bmp / svg
+
+### 自动更新
+
+往 `icon/` 目录上传（或删除、重命名）图标并推送到 `main` 后，[GitHub Actions](.github/workflows/update-icons-json.yml) 会自动重新生成 `icons.json` 并回写仓库，**无需手动维护索引**。
+
+本地也可以手动重新生成：
+
+```bash
+python scripts/generate_icons_json.py
+```
+
+脚本默认从 `git remote origin` 解析 `OWNER/REPO`、从当前分支解析分支名；可用 `--repo` / `--branch` / `--output` 覆盖。
+
 ## 注意
 
 - `allow-lan` 与 `external-controller` 已开启，建议自行添加 `secret` 后再在局域网环境使用
